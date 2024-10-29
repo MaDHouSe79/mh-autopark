@@ -71,6 +71,14 @@ QBCore.Functions.CreateCallback("mh-autopark:server:save", function(source, cb, 
     end
 end)
 
+RegisterNetEvent('police:server:Impound', function(plate, fullImpound, price, body, engine, fuel)
+    local parked = MySQL.Sync.fetchAll('SELECT * FROM player_parking WHERE plate = ?', {plate})[1]
+    if parked ~= nil then 
+        MySQL.Async.execute("DELETE FROM player_parking WHERE AND plate = ?", {plate})
+        MySQL.Async.execute('UPDATE player_vehicles SET state = 0 WHERE plate = ?', {plate})
+    end
+end)
+
 RegisterNetEvent("baseevents:enteredVehicle", function(currentVehicle, currentSeat, vehicleName, netId)
     local src = source
     local vehicle = NetworkGetEntityFromNetworkId(netId)
