@@ -12,10 +12,10 @@ end
 local function Save(vehicle)
     local props = QBCore.Functions.GetVehicleProperties(vehicle)
     if props then
+        SetVehicleEngineOn(vehicle, false, false, true)
         QBCore.Functions.TriggerCallback("mh-autopark:server:save", function(isSaved)
             if isSaved then
-                SetVehicleEngineOn(vehicle, false, false, true)
-                TaskLeaveVehicle(PlayerPedId(), vehicle)
+                Wait(2000)
                 RequestAnimSet("anim@mp_player_intmenu@key_fob@")
                 TaskPlayAnim(PlayerPedId(), 'anim@mp_player_intmenu@key_fob@', 'fob_click', 3.0, 3.0, -1, 49, 0, false, false)
                 Wait(2000)
