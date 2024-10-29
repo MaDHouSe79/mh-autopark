@@ -31,8 +31,9 @@
 - [Discord](https://discord.gg/vJ9EukCmJQ)
 
 # MH - Auto Park
-- it automaticly park your vehicle when you left the vehicle when you press F.
+- it automaticly park your vehicle when you left the vehicle when you press F
 - and it automaticly delete the vehicle when you enter the vehicle when you press F.
+- it does not despawn the vehicle but when the server restarts the vehicle is there.
 
 # Dependencies
 - [oxmysql](https://github.com/overextended/oxmysql/releases/tag/v1.9.3)
