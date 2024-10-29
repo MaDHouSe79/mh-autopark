@@ -76,6 +76,7 @@ RegisterNetEvent('police:server:Impound', function(plate, fullImpound, price, bo
     if parked ~= nil then 
         MySQL.Async.execute("DELETE FROM player_parking WHERE AND plate = ?", {plate})
         MySQL.Async.execute('UPDATE player_vehicles SET state = 0 WHERE plate = ?', {plate})
+        TriggerClientEvent('mh-parking:client:unparkVehicle', -1, plate, false)
     end
 end)
 
