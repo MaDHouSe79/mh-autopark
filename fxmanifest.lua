@@ -6,7 +6,7 @@ games {'gta5'}
 
 author 'MaDHouSe'
 description 'MH Auto Park - To save vehicle at when you get out the vehicle you own.'
-version '1.0'
+version '1.0.0'
 
 shared_scripts {
     'config.lua', 
